@@ -22,7 +22,7 @@ export class MovieApiService {
   }
 
   // Movie Details API Data
-  movieDetails(data: any) Observable<any> {
+  movieDetails(data: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/movie/${data}?api_key=${this.apiKey}&language=pt-BR`);
   }
 
