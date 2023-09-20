@@ -11,14 +11,35 @@ export class MovieDetailsComponent {
 
   constructor(private service:MovieApiService, private router:ActivatedRoute) { }
 
+  movieResult: any;
+  movieVideoResult: any;
+  movieCastResult: any;
+
   ngOnInit(): void{
     let id = this.router.snapshot.paramMap.get('id');
     this.getMovie(id);
+    this.getVideo(id);
+    this.getCast(id);
   }
 
   getMovie(id:any){
     this.service.movieDetails(id).subscribe((result)=>{
-      console.log(result, 'movieDetails#');
+      //console.log(result, 'movieDetails#');
+      this.movieResult = result;
+    });
+  }
+
+  getVideo(id:any){
+    this.service.movieVideo(id).subscribe((result)=>{
+      //console.log(result, 'movieVideo#');
+      this.movieVideoResult = result;
+    });
+  }
+
+  getCast(id:any){
+    this.service.movieCast(id).subscribe((result)=>{
+      //console.log(result, 'movieVideo#');
+      this.movieCastResult = result;
     });
   }
 }

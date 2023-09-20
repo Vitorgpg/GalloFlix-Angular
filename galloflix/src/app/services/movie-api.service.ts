@@ -26,4 +26,13 @@ export class MovieApiService {
     return this.http.get(`${this.baseUrl}/movie/${data}?api_key=${this.apiKey}&language=pt-BR`);
   }
 
+  // Movie Trailer API Data
+  movieVideo(data: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}/movie/${data}/videos?api_key=${this.apiKey}&language=pt-BR`);
+  }
+
+  // Movie Cast API Data
+  movieCast(data: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}/movie/${data}/credits?api_key=${this.apiKey}&language=pt-BR`);
+  }
 }

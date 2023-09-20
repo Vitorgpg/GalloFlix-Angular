@@ -1,10 +1,14 @@
 <div class="container mt-5 pt-5">
-    <div class="row text-white">
-        <div class="col-md-3">
-            Foto
+    <div class="row" *ngIf="movieResult">
+        <div class="col-md-4">
+            <img class="w-100" 
+src="https://image.tmdb.org/t/p/original/{{movieResult.poster_path}}">
         </div>
-        <div class="col-md-9">
-            Texto
+        <div class="col-md-8 text-white">
+            <h1>{{movieResult.title}}</h1>
+            <h5 class="mt-4">Título Original: {{movieResult.original_title}}</h5>
+            <p>Data de Estreia: {{movieResult.release_date | date:'dd/MM/yyyy'}}</p>
+            <p>{{movieResult.overview}}</p>
         </div>
     </div>
 </div>
