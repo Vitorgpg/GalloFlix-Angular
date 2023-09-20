@@ -31,15 +31,20 @@ export class MovieDetailsComponent {
 
   getVideo(id:any){
     this.service.movieVideo(id).subscribe((result)=>{
-      //console.log(result, 'movieVideo#');
-      this.movieVideoResult = result;
+      result.results.forEach((elem:any) => {
+        if (elem.type == "Trailer")
+        {
+          this.movieVideoResult = "https://www.youtube.com/embed/" + elem.key;
+        }
+      });
+      console.log(this.movieVideoResult, 'movieVideo#');
     });
   }
 
   getCast(id:any){
     this.service.movieCast(id).subscribe((result)=>{
-      //console.log(result, 'movieVideo#');
-      this.movieCastResult = result;
+      this.movieCastResult = result.cast;
+      console.log(this.movieCastResult, 'movieVideo#');
     });
   }
 }

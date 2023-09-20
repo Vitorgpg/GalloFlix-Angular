@@ -9,6 +9,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 
 import { HttpClientModule} from '@angular/common/http';
 import { MovieApiService } from './services/movie-api.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
@@ -27,6 +28,7 @@ export class SafePipe implements PipeTransform {
     SafePipe
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
